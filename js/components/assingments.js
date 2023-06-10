@@ -6,8 +6,8 @@ export default
     components: { assingmentsList, createAssingment },
 
     template: `
-        <assingments-list assingmentName="In Progress" :assignmentList="filters.inProgress"></assingments-list>
-        <assingments-list assingmentName="Completed" :assignmentList="filters.completed"></assingments-list>
+        <assingments-list assingmentName="In Progress" :assignmentList="filters.inProgress" @remove="remove"></assingments-list>
+        <assingments-list assingmentName="Completed" :assignmentList="filters.completed" @remove="remove"></assingments-list>
         <create-assingment @add="add"></create-assingment>
         `,
 
@@ -38,6 +38,11 @@ export default
                 name: name,
                 completed: false,
             });
+        },
+        remove(id)
+        {
+            let index = this.assingments.map(ass => ass.id).indexOf(id);
+            this.assingments.splice(index, 1);
         }
     },
 }

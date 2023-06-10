@@ -11,7 +11,9 @@ export default
                 <assingment
                     v-for="assingment in assignmentList" 
                     :key="assingment.id"
-                    :assignment="assingment">
+                    :assignment="assingment"
+                    @remove="remove"
+                    >
                 </assingment>
             </ul>
         </section>
@@ -21,4 +23,12 @@ export default
         assingmentName: String,
         assignmentList: Array
     },
+
+    methods:
+    {
+        remove(id)
+        {
+            this.$emit('remove', id);
+        }
+    }
 }
