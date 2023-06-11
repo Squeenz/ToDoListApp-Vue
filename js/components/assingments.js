@@ -14,10 +14,10 @@ export default
     data() {
         return {
             assingments: [
-                {id: 1, name: 'Re - create the to do list app', completed: false},
-                {id: 2, name: 'Test VUE knowledge', completed: false},
-                {id: 3, name: 'Another Task', completed: false},
-                {id: 4, name: 'Master this shit for laravel', completed: false}
+                {id: 1, name: 'Re - create the to do list app', completed: false, tag:'science'},
+                {id: 2, name: 'Test VUE knowledge', completed: false, tag:'science'},
+                {id: 3, name: 'Another Task', completed: false, tag:'maths'},
+                {id: 4, name: 'Master this shit for laravel', completed: false, tag:'science'}
             ]
         }
     },
@@ -32,11 +32,12 @@ export default
     },
 
     methods: {
-        add(name){
+        add(name, tag){
             this.assingments.push({
                 id: this.assingments.length + 1,
                 name: name,
                 completed: false,
+                tag: tag
             });
         },
         remove(id)
